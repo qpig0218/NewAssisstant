@@ -1,0 +1,4 @@
+*.temp
+*_backup.*
+*_complete.*
+*_previous.*
