@@ -41,7 +41,7 @@
         .loader {
             border: 4px solid #f3f3f3;
             border-radius: 50%;
-            border-top: 4px solid #3b82f6;
+            border-top: 4px solid #ea580c;
             width: 40px;
             height: 40px;
             animation: spin 1s linear infinite;
@@ -57,23 +57,43 @@
     <div class="container mx-auto p-4 md:p-8">
         <!-- 頂部標題 -->
         <header class="text-center mb-8">
-            <h1 class="text-3xl md:text-4xl font-bold text-slate-900">AI 新聞改寫助手</h1>
-            <p class="text-slate-500 mt-2">選取主題獲取新聞，並使用 AI 進行內容再創作</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 flex items-center justify-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange-600">
+                    <path d="M9.663 17h4.673M12 3v1m6.364 1.636-.707.707M21 12h-1M4 12H3m3.343-5.657-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386L9.663 17z"/>
+                </svg>
+                AI 新聞改寫助手
+            </h1>
+            <p class="text-lg text-slate-500 mt-2">選取主題獲取新聞，並使用 AI 進行內容再創作</p>
         </header>
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
             <!-- 左側欄：主題與新聞列表 -->
             <aside class="md:col-span-4 lg:col-span-3">
                 <div class="bg-white p-4 rounded-lg shadow-md">
-                    <h2 class="text-xl font-bold mb-4 border-b pb-2">新聞主題</h2>
+                    <h2 class="text-2xl font-bold mb-4 border-b pb-2 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"/></svg>
+                        新聞主題
+                    </h2>
                     <div id="topics" class="space-y-2">
-                        <button onclick="fetchNews('品牌行銷', this)" class="w-full text-left p-3 rounded-lg hover:bg-blue-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400">品牌行銷</button>
-                        <button onclick="fetchNews('危機公關', this)" class="w-full text-left p-3 rounded-lg hover:bg-blue-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400">危機公關</button>
-                        <button onclick="fetchNews('AI醫療', this)" class="w-full text-left p-3 rounded-lg hover:bg-blue-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400">AI醫療</button>
+                        <button onclick="fetchNews('品牌行銷', this)" class="w-full text-left p-3 rounded-lg hover:bg-orange-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-orange-400 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"/></svg>
+                            品牌行銷
+                        </button>
+                        <button onclick="fetchNews('危機公關', this)" class="w-full text-left p-3 rounded-lg hover:bg-orange-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-orange-400 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
+                            危機公關
+                        </button>
+                        <button onclick="fetchNews('AI醫療', this)" class="w-full text-left p-3 rounded-lg hover:bg-orange-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-orange-400 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7z"/></svg>
+                            AI醫療
+                        </button>
                     </div>
                 </div>
                 <div class="bg-white p-4 rounded-lg shadow-md mt-6">
-                    <h2 class="text-xl font-bold mb-4 border-b pb-2">新聞列表</h2>
+                    <h2 class="text-2xl font-bold mb-4 border-b pb-2 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8"/></svg>
+                        新聞列表
+                    </h2>
                     <div id="news-list-loader" class="text-center py-4 hidden">
                          <p class="text-slate-500">正在載入新聞...</p>
                     </div>
@@ -92,7 +112,10 @@
                         <!-- 原文區塊 -->
                         <div id="original-article-section">
                             <div class="flex justify-between items-center mb-2">
-                                <h3 class="text-lg font-bold">新聞原文</h3>
+                                <h3 class="text-xl font-bold flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
+                                    新聞原文
+                                </h3>
                                 <button id="btn-copy-original" onclick="copyToClipboard('original-text')" class="btn-action flex items-center gap-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-slate-100 disabled:text-slate-400 disabled:cursor-not-allowed" disabled>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                                     <span>複製全文</span>
@@ -101,14 +124,17 @@
                             <div id="original-text-loader" class="text-center py-10 hidden">
                                 <p class="text-slate-500">正在抓取全文內容...</p>
                             </div>
-                            <textarea id="original-text" class="w-full h-96 p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition" placeholder="點擊左側新聞標題以載入全文..."></textarea>
+                            <textarea id="original-text" class="w-full h-96 p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition" placeholder="點擊左側新聞標題以載入全文..."></textarea>
                         </div>
 
                         <!-- AI 改寫區塊 -->
                         <div id="rewritten-article-section">
                              <div class="flex justify-between items-center mb-2">
-                                <h3 class="text-lg font-bold">AI 改寫</h3>
-                                 <button id="btn-rewrite" onclick="rewriteArticle()" class="btn-action flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-blue-300 disabled:cursor-not-allowed" disabled>
+                                <h3 class="text-xl font-bold flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.673M12 3v1m6.364 1.636-.707.707M21 12h-1M4 12H3m3.343-5.657-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386L9.663 17z"/></svg>
+                                    AI 改寫
+                                </h3>
+                                 <button id="btn-rewrite" onclick="rewriteArticle()" class="btn-action flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-orange-300 disabled:cursor-not-allowed" disabled>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path><path d="M5 3v4"></path><path d="M19 17v4"></path><path d="M3 5h4"></path><path d="M17 19h4"></path></svg>
                                     <span>AI 改寫</span>
                                 </button>
@@ -119,7 +145,10 @@
                             </div>
                             
                             <div class="flex justify-between items-center mb-2 mt-4">
-                                <h3 class="text-lg font-bold">改寫後內容</h3>
+                                <h3 class="text-xl font-bold flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                                    改寫後內容
+                                </h3>
                                 <button id="btn-copy-rewritten" onclick="copyToClipboard('rewritten-text')" class="btn-action flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 disabled:bg-green-200 disabled:cursor-not-allowed" disabled>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                                     <span>複製改寫文</span>
@@ -129,14 +158,14 @@
                                 <div class="loader"></div>
                                 <p class="ml-4 text-slate-500">AI 正在生成中...</p>
                             </div>
-                            <textarea id="rewritten-text" class="w-full h-48 p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition" placeholder="點擊「AI 改寫」按鈕後，結果將顯示於此..."></textarea>
+                            <textarea id="rewritten-text" class="w-full h-48 p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition" placeholder="點擊「AI 改寫」按鈕後，結果將顯示於此..."></textarea>
                         </div>
 
                     </div>
                  </div>
                  <div id="welcome-message" class="text-center bg-white p-10 rounded-lg shadow-md">
-                    <h2 class="text-2xl font-bold">歡迎使用 AI 新聞助手</h2>
-                    <p class="mt-2 text-slate-500">請從左側選擇一個新聞主題開始探索。</p>
+                    <h2 class="text-3xl font-bold">歡迎使用 AI 新聞助手</h2>
+                    <p class="mt-2 text-lg text-slate-500">請從左側選擇一個新聞主題開始探索。</p>
                  </div>
             </main>
         </div>
@@ -158,4 +187,153 @@
         const welcomeMessage = document.getElementById('welcome-message');
 
         const newsListLoader = document.getElementById('news-list-loader');
-        const originalTextLoader = document.getElementById('original-text-loader
+        const originalTextLoader = document.getElementById('original-text-loader');
+        const rewrittenTextLoader = document.getElementById('rewritten-text-loader');
+
+        // Set default prompt
+        promptDisplayEl.value = `請根據以下新聞內容進行改寫：
+
+1. 保持事實準確性，不可篡改核心信息
+2. 調整語言風格，使其更具可讀性
+3. 重新組織段落結構，提升邏輯性
+4. 適度潤飾文字，但保持客觀中性
+5. 字數控制在原文的80-120%之間
+
+請開始改寫：`;
+
+        // --- 功能函數 ---
+        
+        // 獲取新聞列表
+        async function fetchNews(topic, buttonEl) {
+            // 清除所有主題按鈕的選中狀態
+            document.querySelectorAll('#topics button').forEach(btn => {
+                btn.classList.remove('bg-orange-200', 'border-orange-400');
+            });
+            
+            // 設置當前按鈕為選中狀態
+            buttonEl.classList.add('bg-orange-200', 'border-orange-400');
+            
+            // 顯示載入狀態
+            newsListLoader.classList.remove('hidden');
+            newsListEl.innerHTML = '';
+            
+            try {
+                // 模擬 API 調用
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                // 模擬新聞數據
+                const mockNews = [
+                    {
+                        title: `${topic}相關新聞標題一`,
+                        summary: '這是一個關於該主題的重要新聞摘要內容...',
+                        content: `這是關於${topic}的詳細新聞內容。這裡包含了完整的新聞報導，包括背景、發展經過、相關人物說法、專家分析等詳細信息。\n\n這是第二段內容，提供更多細節和相關資訊。\n\n最後一段通常會包含總結或未來展望。`
+                    },
+                    {
+                        title: `${topic}領域最新發展動態`,
+                        summary: '業界專家分析認為這將帶來重大影響...',
+                        content: `在${topic}領域的最新發展中，多項重要進展值得關注。相關技術的突破為行業帶來了新的機遇與挑戰。\n\n專家們普遍認為，這些發展將在未來幾年內對整個行業產生深遠影響。\n\n各大企業也紛紛調整策略，以應對市場的新變化。`
+                    },
+                    {
+                        title: `${topic}政策新規即將實施`,
+                        summary: '相關部門發布新政策，將於下月正式生效...',
+                        content: `政府相關部門針對${topic}領域發布了新的政策規範，該政策將於下個月正式生效實施。\n\n新政策的主要內容包括規範標準的提升、監管措施的加強以及發展方向的指引。\n\n業界人士對此表示歡迎，認為這將有助於行業的健康發展。`
+                    }
+                ];
+                
+                // 隱藏載入狀態
+                newsListLoader.classList.add('hidden');
+                
+                // 渲染新聞列表
+                newsListEl.innerHTML = mockNews.map((news, index) => `
+                    <li class="cursor-pointer p-3 rounded-lg hover:bg-gray-100 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-400" 
+                        onclick="loadArticle('${news.title}', '${news.content}')">
+                        <h4 class="font-semibold text-slate-700 mb-1">${news.title}</h4>
+                        <p class="text-sm text-slate-500">${news.summary}</p>
+                    </li>
+                `).join('');
+                
+            } catch (error) {
+                newsListLoader.classList.add('hidden');
+                newsListEl.innerHTML = '<li class="text-red-500 p-2">載入失敗，請稍後再試</li>';
+            }
+        }
+        
+        // 載入文章內容
+        function loadArticle(title, content) {
+            // 顯示主內容區域
+            mainContentArea.classList.remove('hidden');
+            welcomeMessage.classList.add('hidden');
+            
+            // 顯示載入狀態
+            originalTextLoader.classList.remove('hidden');
+            originalTextEl.value = '';
+            
+            // 模擬載入延遲
+            setTimeout(() => {
+                originalTextLoader.classList.add('hidden');
+                originalTextEl.value = `標題：${title}\n\n${content}`;
+                
+                // 啟用複製和改寫按鈕
+                btnCopyOriginal.disabled = false;
+                btnRewrite.disabled = false;
+                
+                // 清空改寫區域
+                rewrittenTextEl.value = '';
+                btnCopyRewritten.disabled = true;
+            }, 800);
+        }
+        
+        // 複製到剪貼板
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            element.select();
+            document.execCommand('copy');
+            
+            // 顯示複製成功提示
+            const button = event.target.closest('button');
+            const originalText = button.innerHTML;
+            button.innerHTML = button.innerHTML.replace(/複製.*/, '已複製 ✓');
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+            }, 2000);
+        }
+        
+        // AI 改寫文章
+        async function rewriteArticle() {
+            if (!originalTextEl.value.trim()) {
+                alert('請先選擇一篇新聞');
+                return;
+            }
+            
+            // 顯示載入狀態
+            rewrittenTextLoader.classList.remove('hidden');
+            rewrittenTextEl.value = '';
+            btnRewrite.disabled = true;
+            
+            try {
+                // 模擬 AI 處理時間
+                await new Promise(resolve => setTimeout(resolve, 3000));
+                
+                // 模擬 AI 改寫結果
+                const originalContent = originalTextEl.value;
+                const rewrittenContent = `【改寫版本】\n\n${originalContent.replace(/這是/g, '此為').replace(/將/g, '即將').replace(/。/g, '，並展現出積極的發展態勢。')}\n\n※ 本內容經由 AI 智能改寫，保持原意但調整了表達方式和結構。`;
+                
+                // 隱藏載入狀態
+                rewrittenTextLoader.classList.add('hidden');
+                rewrittenTextEl.value = rewrittenContent;
+                
+                // 啟用複製按鈕
+                btnCopyRewritten.disabled = false;
+                btnRewrite.disabled = false;
+                
+            } catch (error) {
+                rewrittenTextLoader.classList.add('hidden');
+                btnRewrite.disabled = false;
+                alert('改寫失敗，請稍後再試');
+            }
+        }
+        
+    </script>
+</body>
+</html>
